@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import './Form.css';
+import "./Form.css";
 import { useTelegram } from "../../hooks/useTelegram";
 
 const Form = () => {
@@ -38,11 +38,11 @@ const Form = () => {
     return(
         <div className={"form"}>
             <h3>Введите ваши данные</h3>
-            <input className={'input'} type="text" placeholder={'Страна'} value={country} onChange={onChangeCountry} />
-            <input className={'input'} type="text" placeholder={'Улица'} value={street} onChange={onChangeStreet} />
-            <select className={'select'} value={subject} onChange={onChangeSubject}>
-                <option value={'physical'}>Физическое лицо</option>
-                <option value={'legal'}>Юридическое лицо</option>
+            <input className={"input"} type="text" placeholder={'Страна'} value={country} onChange={onChangeCountry} />
+            <input className={"input"} type="text" placeholder={'Улица'} value={street} onChange={onChangeStreet} />
+            <select className={"select"} value={subject} onChange={onChangeSubject}>
+                <option value={"physical"}>Физическое лицо</option>
+                <option value={"legal"}>Юридическое лицо</option>
             </select>
         </div>
     );
