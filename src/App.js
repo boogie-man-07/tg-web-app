@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route exact path="/" element={<ProductList />} />
+        <Route exact path="/tg-web-app" element={<ProductList />} />
         <Route path="/form" element={<Form />} />
       </Routes>
     </div>
