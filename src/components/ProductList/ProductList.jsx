@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+import { useTelegram } from "../../hooks/useTelegram";
 import "./ProductList.css";
 import ProductItem from "../ProductItem/ProductItem";
-import { useTelegram } from "../../hooks/useTelegram";
 
 const products = [
     { id: '1', title: 'Джинсы', price: '5000', description: 'Синего цвета, прямые' },
@@ -14,7 +14,7 @@ const products = [
     { id: '8', title: 'Куртка 5', price: '12000', description: 'Зеленого цвета, теплая' }
 ]
 
-const totalPrice = (items) => {
+const getTotalPrice = (items) => {
     return items.reduce((acc, item) => {
         return acc += item.price
     }, 0)
@@ -40,19 +40,20 @@ const ProductList = () => {
         } else {
             tg.MainButton.show();
             tg.MainButton.setParams({
-                text: `Купить ${totalPrice(newItems)}`
+                text: `Купить ${getTotalPrice(newItems)}`
             })
         }
     }
     
     return(
         <div className={'list'}>
-            {products.map(item => {
+            {products.map(item => (
                 <ProductItem
                     product={item}
                     onAdd={onAdd}
-                    className={'item'} />
-            })}
+                    className={'item'}
+                />
+            ))}
         </div>
     );
 };
