@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProductList.css";
 import ProductItem from "../ProductItem/ProductItem";
 import { useTelegram } from "../../hooks/useTelegram";
@@ -14,7 +14,7 @@ const products = [
     { id: '8', title: 'Куртка 5', price: '12000', description: 'Зеленого цвета, теплая' }
 ]
 
-const totalPrice = (items = []) => {
+const totalPrice = (items) => {
     return items.reduce((acc, item) => {
         return acc += item.price
     }, 0)
@@ -33,7 +33,7 @@ const ProductList = () => {
         } else {
             newItems = [...addedItems, product];
         }
-        setAddedItems(newItems);
+        setAddedItems(newItems)
 
         if (newItems.length === 0) {
             tg.MainButton.hide();
@@ -47,12 +47,11 @@ const ProductList = () => {
     
     return(
         <div className={'list'}>
-            {ProductList.map(item => {
+            {products.map(item => {
                 <ProductItem
                     product={item}
                     onAdd={onAdd}
-                    className={'item'}
-                />
+                    className={'item'} />
             })}
         </div>
     );
